@@ -186,10 +186,18 @@
     }
     .photo-front { background: #000; }
     .photo-back {
-      background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+      position: relative;
       transform: rotateY(180deg);
+      border-color: var(--gold);
+      box-shadow: 0 0 15px rgba(251, 191, 36, 0.3);
+    }
+    .secret-back-img {
+      width: 100%; height: 100%; object-fit: cover; border-radius: 14px;
+    }
+    .secret-back-overlay {
+      position: absolute; inset: 0; background: rgba(15, 23, 42, 0.78);
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      padding: 10px; border-color: var(--gold); box-shadow: inset 0 0 15px rgba(251, 191, 36, 0.2);
+      padding: 10px; border-radius: 14px;
     }
     .secret-note-text {
       font-size: 0.82rem; font-weight: 700; color: #fef08a;
@@ -310,10 +318,9 @@
             <span class="track-status">▶</span>
           </div>
           <div class="track-item" id="track-5" onclick="loadAndPlayTrack(5)">
-  <div class="track-left"><span class="track-num">6</span><span class="track-name">Dandelions</span></div>
-  <span class="track-status">▶</span>
+            <div class="track-left"><span class="track-num">6</span><span class="track-name">Dandelions</span></div>
+            <span class="track-status">▶</span>
           </div>
-          
         </div>
       </div>
       <div class="action-card">
@@ -328,11 +335,14 @@
         <div class="photo-flip-card" id="photoFlipCard">
           <div class="photo-flip-inner">
             <div class="photo-front">
-              <img id="mysteryPhoto" src="SPhoto.jpg" alt="Wish" class="mystery-photo" onerror="this.src='VPhoto.jpg'" />
+              <img id="mysteryPhoto" src="wish_photo.jpg" alt="Wish" class="mystery-photo" onerror="this.src='VPhoto.jpg'" />
               <div id="scrambleText" class="scramble-overlay-text">🔒 Locked Wish</div>
             </div>
             <div class="photo-back">
-              <div class="secret-note-text">💌<br><br>Thank u for being my best friend ✨</div>
+              <img src="SPhoto.jpg" alt="Secret Memory" class="secret-back-img" onerror="this.src='wish_photo.jpg'" />
+              <div class="secret-back-overlay">
+                <div class="secret-note-text">💌<br><br>Thank u for being my best friend ✨</div>
+              </div>
             </div>
           </div>
         </div>
@@ -395,12 +405,12 @@
         title: "Ninekkente 🤎", 
         artist: "Track 05 • Birthday Edition", 
         src: "Ninekkente.mp3",
-        color: "#10b981",
-        glow: "rgba(16, 185, 129, 0.45)",
-        gradient: "radial-gradient(circle at 50% 0%, #022c22 0%, var(--bg-dark) 100%)",
+        color: "#a16207",
+        glow: "rgba(161, 98, 7, 0.45)",
+        gradient: "radial-gradient(circle at 50% 0%, #2e1605 0%, var(--bg-dark) 100%)",
         emoji: "🤎"
-      }
-            { 
+      },
+      { 
         title: "Dandelions 💛", 
         artist: "Track 06 • Birthday Edition", 
         src: "Dandelions.mp3",
@@ -409,7 +419,6 @@
         gradient: "radial-gradient(circle at 50% 0%, #422006 0%, var(--bg-dark) 100%)",
         emoji: "💛"
       }
-
     ];
     let currentTrackIndex = 0;
     let pulseTimer = null;
@@ -436,112 +445,112 @@
       if (!spindle) return;
       
       spindle.style.display = 'flex';
-      spindle.style.alignItems = 'center';
-      spindle.style.justifyContent = 'center';
-      spindle.style.fontSize = '1.1rem';
-      spindle.style.width = '32px';
-      spindle.style.height = '32px';
-      spindle.style.transition = 'all 0.6s ease';
-      spindle.style.transform = 'scale(1.25)';
-      spindle.style.boxShadow = '0 0 15px rgba(255,255,255,0.4)';
-      spindle.textContent = emoji;
+            spindle.style.alignItems = 'center';[span_0](start_span)[span_0](end_span)
+      spindle.style.justifyContent = 'center';[span_1](start_span)[span_1](end_span)
+      spindle.style.fontSize = '1.1rem';[span_2](start_span)[span_2](end_span)
+      spindle.style.width = '32px';[span_3](start_span)[span_3](end_span)
+      spindle.style.height = '32px';[span_4](start_span)[span_4](end_span)
+      spindle.style.transition = 'all 0.6s ease';[span_5](start_span)[span_5](end_span)
+      spindle.style.transform = 'scale(1.25)';[span_6](start_span)[span_6](end_span)
+      spindle.style.boxShadow = '0 0 15px rgba(255,255,255,0.4)';[span_7](start_span)[span_7](end_span)
+      spindle.textContent = emoji;[span_8](start_span)[span_8](end_span)
 
-      clearTimeout(pulseTimer);
+      clearTimeout(pulseTimer);[span_9](start_span)[span_9](end_span)
       pulseTimer = setTimeout(() => {
-        spindle.style.transform = 'scale(1)';
-        spindle.style.boxShadow = 'none';
-        spindle.style.width = '16px';
-        spindle.style.height = '16px';
-        spindle.textContent = '';
-      }, 3500);
+        spindle.style.transform = 'scale(1)';[span_10](start_span)[span_10](end_span)
+        spindle.style.boxShadow = 'none';[span_11](start_span)[span_11](end_span)
+        spindle.style.width = '16px';[span_12](start_span)[span_12](end_span)
+        spindle.style.height = '16px';[span_13](start_span)[span_13](end_span)
+        spindle.textContent = '';[span_14](start_span)[span_14](end_span)
+      }, 3500);[span_15](start_span)[span_15](end_span)
     }
 
     function initPlayer() {
-      audio.src = tracklist[0].src;
-      trackTitleEl.textContent = tracklist[0].title;
-      artistNameEl.textContent = tracklist[0].artist;
-      applyTrackTheme(tracklist[0]);
+      audio.src = tracklist[0].src;[span_16](start_span)[span_16](end_span)
+      trackTitleEl.textContent = tracklist[0].title;[span_17](start_span)[span_17](end_span)
+      artistNameEl.textContent = tracklist[0].artist;[span_18](start_span)[span_18](end_span)
+      applyTrackTheme(tracklist[0]);[span_19](start_span)[span_19](end_span)
     }
-    initPlayer();
+    initPlayer();[span_20](start_span)[span_20](end_span)
 
     function loadAndPlayTrack(index) {
-      currentTrackIndex = index;
-      const track = tracklist[index];
-      trackTitleEl.textContent = track.title;
-      artistNameEl.textContent = track.artist;
+      currentTrackIndex = index;[span_21](start_span)[span_21](end_span)
+      const track = tracklist[index];[span_22](start_span)[span_22](end_span)
+      trackTitleEl.textContent = track.title;[span_23](start_span)[span_23](end_span)
+      artistNameEl.textContent = track.artist;[span_24](start_span)[span_24](end_span)
       
-      applyTrackTheme(track);
-      triggerSpindlePulse(track.emoji);
+      applyTrackTheme(track);[span_25](start_span)[span_25](end_span)
+      triggerSpindlePulse(track.emoji);[span_26](start_span)[span_26](end_span)
 
       document.querySelectorAll('.track-item').forEach((item, idx) => {
-        item.classList.toggle('playing', idx === index);
-        item.querySelector('.track-status').textContent = idx === index ? '🔊' : '▶';
+        item.classList.toggle('playing', idx === index);[span_27](start_span)[span_27](end_span)
+        item.querySelector('.track-status').textContent = idx === index ? '🔊' : '▶';[span_28](start_span)[span_28](end_span)
       });
-      audio.src = track.src;
-      audio.load();
+      audio.src = track.src;[span_29](start_span)[span_29](end_span)
+      audio.load();[span_30](start_span)[span_30](end_span)
       audio.play().then(() => {
-        playBtn.textContent = '⏸';
-        equalizer.classList.add('playing');
-        vinylWrapper.classList.add('spinning');
-      }).catch(() => { playBtn.textContent = '▶'; });
+        playBtn.textContent = '⏸';[span_31](start_span)[span_31](end_span)
+        equalizer.classList.add('playing');[span_32](start_span)[span_32](end_span)
+        vinylWrapper.classList.add('spinning');[span_33](start_span)[span_33](end_span)
+      }).catch(() => { playBtn.textContent = '▶'; });[span_34](start_span)[span_34](end_span)
     }
 
     function toggleAudio() {
-      if (audio.paused) {
+      if (audio.paused) {[span_35](start_span)[span_35](end_span)
         audio.play().then(() => {
-          playBtn.textContent = '⏸';
-          equalizer.classList.add('playing');
-          vinylWrapper.classList.add('spinning');
+          playBtn.textContent = '⏸';[span_36](start_span)[span_36](end_span)
+          equalizer.classList.add('playing');[span_37](start_span)[span_37](end_span)
+          vinylWrapper.classList.add('spinning');[span_38](start_span)[span_38](end_span)
         });
       } else {
-        audio.pause();
-        playBtn.textContent = '▶';
-        equalizer.classList.remove('playing');
-        vinylWrapper.classList.remove('spinning');
+        audio.pause();[span_39](start_span)[span_39](end_span)
+        playBtn.textContent = '▶';[span_40](start_span)[span_40](end_span)
+        equalizer.classList.remove('playing');[span_41](start_span)[span_41](end_span)
+        vinylWrapper.classList.remove('spinning');[span_42](start_span)[span_42](end_span)
       }
     }
 
     function toggleHeart() {
-      document.getElementById('heartBtn').classList.toggle('liked');
+      document.getElementById('heartBtn').classList.toggle('liked');[span_43](start_span)[span_43](end_span)
     }
 
-    function playNextTrack() { loadAndPlayTrack((currentTrackIndex + 1) % tracklist.length); }
-    function playPrevTrack() { loadAndPlayTrack((currentTrackIndex - 1 + tracklist.length) % tracklist.length); }
-    audio.addEventListener('ended', playNextTrack);
+    function playNextTrack() { loadAndPlayTrack((currentTrackIndex + 1) % tracklist.length); }[span_44](start_span)[span_44](end_span)
+    function playPrevTrack() { loadAndPlayTrack((currentTrackIndex - 1 + tracklist.length) % tracklist.length); }[span_45](start_span)[span_45](end_span)
+    audio.addEventListener('ended', playNextTrack);[span_46](start_span)[span_46](end_span)
 
     audio.addEventListener('timeupdate', () => {
-      if (audio.duration) {
-        progressFill.style.width = `${(audio.currentTime / audio.duration) * 100}%`;
-        currentTimeEl.textContent = formatTime(audio.currentTime);
-        totalDurationEl.textContent = formatTime(audio.duration);
+      if (audio.duration) {[span_47](start_span)[span_47](end_span)
+        progressFill.style.width = `${(audio.currentTime / audio.duration) * 100}%`;[span_48](start_span)[span_48](end_span)
+        currentTimeEl.textContent = formatTime(audio.currentTime);[span_49](start_span)[span_49](end_span)
+        totalDurationEl.textContent = formatTime(audio.duration);[span_50](start_span)[span_50](end_span)
       }
     });
 
     function seekAudio(e) {
-      const rect = e.currentTarget.getBoundingClientRect();
-      if (audio.duration) audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
+      const rect = e.currentTarget.getBoundingClientRect();[span_51](start_span)[span_51](end_span)
+      if (audio.duration) audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;[span_52](start_span)[span_52](end_span)
     }
 
     function formatTime(s) {
-      if (isNaN(s)) return '0:00';
-      return `${Math.floor(s / 60)}:${Math.floor(s % 60).toString().padStart(2, '0')}`;
+      if (isNaN(s)) return '0:00';[span_53](start_span)[span_53](end_span)
+      return `${Math.floor(s / 60)}:${Math.floor(s % 60).toString().padStart(2, '0')}`;[span_54](start_span)[span_54](end_span)
     }
 
     function navigateToPage(num) {
-      document.querySelectorAll('.page-view').forEach(el => el.classList.remove('active'));
-      document.getElementById(`page${num}`).classList.add('active');
+      document.querySelectorAll('.page-view').forEach(el => el.classList.remove('active'));[span_55](start_span)[span_55](end_span)
+      document.getElementById(`page${num}`).classList.add('active');[span_56](start_span)[span_56](end_span)
     }
 
-    let wishBlown = false;
-    let voucherUpgraded = false;
-    let lastVoucherTap = 0;
+    let wishBlown = false;[span_57](start_span)[span_57](end_span)
+    let voucherUpgraded = false;[span_58](start_span)[span_58](end_span)
+    let lastVoucherTap = 0;[span_59](start_span)[span_59](end_span)
 
     function renderVoucher(isUpgraded) {
-      const box = document.getElementById('mainContentBox');
-      box.classList.add('voucher-active');
+      const box = document.getElementById('mainContentBox');[span_60](start_span)[span_60](end_span)
+      box.classList.add('voucher-active');[span_61](start_span)[span_61](end_span)
       
       if (isUpgraded) {
-        box.classList.add('voucher-upgraded');
+        box.classList.add('voucher-upgraded');[span_62](start_span)[span_62](end_span)
         box.innerHTML = `
           <div class="voucher-tag" style="color: var(--cyan);">👑 BDAY UPGRADE UNLOCKED</div>
           <div class="voucher-title">1x Unlimited Shawarma + Loaded Fries 🍟🌯</div>
@@ -552,7 +561,7 @@
             <strong>Expires:</strong> Never ♾️
           </div>
           <div class="voucher-fineprint" style="color: var(--cyan);">*Secret Platinum Tier Active • Screenshot to redeem*</div>
-        `;
+        `;[span_63](start_span)[span_63](end_span)
       } else {
         box.innerHTML = `
           <div class="voucher-tag">🎟️ OFFICIAL B'DAY VOUCHER</div>
@@ -563,70 +572,70 @@
             <strong>Expires:</strong> Never ♾️
           </div>
           <div class="voucher-fineprint">*Non-transferable • Screenshot to redeem anytime*</div>
-        `;
+        `;[span_64](start_span)[span_64](end_span)
       }
     }
 
     function blowCandleWish() {
-      if (wishBlown) return;
-      wishBlown = true;
+      if (wishBlown) return;[span_65](start_span)[span_65](end_span)
+      wishBlown = true;[span_66](start_span)[span_66](end_span)
 
-      const flame = document.getElementById('flameEmoji');
-      flame.classList.add('blowing');
+      const flame = document.getElementById('flameEmoji');[span_67](start_span)[span_67](end_span)
+      flame.classList.add('blowing');[span_68](start_span)[span_68](end_span)
 
       setTimeout(() => {
-        flame.classList.remove('blowing');
-        flame.textContent = '🕯️💨';
-        document.getElementById('candleText').textContent = '✨ Wish granted & reward unlocked! ✨';
-        document.getElementById('candleText').style.color = '#86efac';
-        document.getElementById('mysteryPhoto').classList.add('revealed');
-        document.getElementById('scrambleText').classList.add('hidden');
+        flame.classList.remove('blowing');[span_69](start_span)[span_69](end_span)
+        flame.textContent = '🕯️💨';[span_70](start_span)[span_70](end_span)
+        document.getElementById('candleText').textContent = '✨ Wish granted & reward unlocked! ✨';[span_71](start_span)[span_71](end_span)
+        document.getElementById('candleText').style.color = '#86efac';[span_72](start_span)[span_72](end_span)
+        document.getElementById('mysteryPhoto').classList.add('revealed');[span_73](start_span)[span_73](end_span)
+        document.getElementById('scrambleText').classList.add('hidden');[span_74](start_span)[span_74](end_span)
         
-        renderVoucher(false);
+        renderVoucher(false);[span_75](start_span)[span_75](end_span)
 
-        if (typeof confetti === 'function') confetti({ particleCount: 120, spread: 75, origin: { y: 0.6 } });
-      }, 400);
+        if (typeof confetti === 'function') confetti({ particleCount: 120, spread: 75, origin: { y: 0.6 } });[span_76](start_span)[span_76](end_span)
+      }, 400);[span_77](start_span)[span_77](end_span)
     }
 
     // Easter Egg 1: Double-tap VIP badge to toggle Velvet Gold theme
-    let lastVipTap = 0;
+    let lastVipTap = 0;[span_78](start_span)[span_78](end_span)
     document.getElementById('vipBadge').addEventListener('pointerdown', () => {
-      const now = Date.now();
-      if (now - lastVipTap < 350) {
-        document.body.classList.toggle('theme-gold');
-        if (!document.body.classList.contains('theme-gold')) {
-          applyTrackTheme(tracklist[currentTrackIndex]);
+      const now = Date.now();[span_79](start_span)[span_79](end_span)
+      if (now - lastVipTap < 350) {[span_80](start_span)[span_80](end_span)
+        document.body.classList.toggle('theme-gold');[span_81](start_span)[span_81](end_span)
+        if (!document.body.classList.contains('theme-gold')) {[span_82](start_span)[span_82](end_span)
+          applyTrackTheme(tracklist[currentTrackIndex]);[span_83](start_span)[span_83](end_span)
         }
       }
-      lastVipTap = now;
+      lastVipTap = now;[span_84](start_span)[span_84](end_span)
     });
 
     // Easter Egg 2: Double-tap photo to flip and reveal secret note
-    let lastPhotoTap = 0;
-    const flipCard = document.getElementById('photoFlipCard');
+    let lastPhotoTap = 0;[span_85](start_span)[span_85](end_span)
+    const flipCard = document.getElementById('photoFlipCard');[span_86](start_span)[span_86](end_span)
     flipCard.addEventListener('pointerdown', () => {
-      if (!wishBlown) return;
-      const now = Date.now();
-      if (now - lastPhotoTap < 350) {
-        flipCard.classList.toggle('flipped');
+      if (!wishBlown) return;[span_87](start_span)[span_87](end_span)
+      const now = Date.now();[span_88](start_span)[span_88](end_span)
+      if (now - lastPhotoTap < 350) {[span_89](start_span)[span_89](end_span)
+        flipCard.classList.toggle('flipped');[span_90](start_span)[span_90](end_span)
       }
-      lastPhotoTap = now;
+      lastPhotoTap = now;[span_91](start_span)[span_91](end_span)
     });
 
     // Easter Egg 3: Double-tap voucher to unlock Platinum Upgrade
     document.getElementById('mainContentBox').addEventListener('pointerdown', () => {
-      if (!wishBlown || voucherUpgraded) return;
-      const now = Date.now();
-      if (now - lastVoucherTap < 350) {
-        voucherUpgraded = true;
-        renderVoucher(true);
-        if (typeof confetti === 'function') confetti({ particleCount: 180, spread: 90, origin: { y: 0.5 } });
+      if (!wishBlown || voucherUpgraded) return;[span_92](start_span)[span_92](end_span)
+      const now = Date.now();[span_93](start_span)[span_93](end_span)
+      if (now - lastVoucherTap < 350) {[span_94](start_span)[span_94](end_span)
+        voucherUpgraded = true;[span_95](start_span)[span_95](end_span)
+        renderVoucher(true);[span_96](start_span)[span_96](end_span)
+        if (typeof confetti === 'function') confetti({ particleCount: 180, spread: 90, origin: { y: 0.5 } });[span_97](start_span)[span_97](end_span)
       }
-      lastVoucherTap = now;
+      lastVoucherTap = now;[span_98](start_span)[span_98](end_span)
     });
 
     function triggerConfetti() {
-      if (typeof confetti === 'function') confetti({ particleCount: 35, spread: 45, origin: { y: 0.65 } });
+      if (typeof confetti === 'function') confetti({ particleCount: 35, spread: 45, origin: { y: 0.65 } });[span_99](start_span)[span_99](end_span)
     }
   </script>
 </body>
